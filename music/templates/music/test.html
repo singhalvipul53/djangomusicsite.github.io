@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div class="populardestination">
+        <div class="container cont">
+            <div class="popularphotos">
+                <div class="cols-2">
+                    <div class="row">
+                    {% for artist in artists%}
+                    {% if forloop.counter >0 and is not forloop.counter|divisibleby:4 %}
+                        {% endif %}
+                        <div class="col-lg-4 share">
+                            <span>
+                                <img src="{{artist.image.url}}" alt="">
+                            </span>
+                            <div class="button justify-content">
+                                <button class="btn btn-danger "><a
+                                        href="{% url 'artistdetail' artist.id%}">Play</a></button>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,476 @@
+{% load static%}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MusicPage</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <style>
+        body {
+            background: rgba(20, 20, 20, 0.959);
+        }
+        
+        .navandphoto {
+            height: 750px;
+            background-image: url("{% static 'images/yotto-dj-tips-2.webp'%}");
+            background-size: cover;
+        }
+        
+        .navs {
+            padding: 30px;
+            padding-left: 0;
+            padding-right: 0;
+        }
+        
+        li {
+            color: rgb(255, 255, 255);
+            font-size: 20px;
+            cursor: pointer;
+            opacity: .5;
+            margin: 10px;
+            list-style-type: none;
+        }
+        
+        li.main {
+            opacity: 1;
+        
+        }
+        li a{
+            color: rgb(255, 255, 255);
+            text-decoration: none;
+            font-size: 20px;
+            cursor: pointer;
+            opacity: .5;
+            margin: 10px;
+        }
+        
+        li:hover {
+            opacity: 1;
+        }
+        li a:hover {
+            color: rgb(255, 255, 255);
+            text-decoration: none;
+            font-size: 20px;
+            cursor: pointer;
+            margin: 10px;
+            opacity: 1;
+        }
+        
+        .centerquote {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        
+        }
+        
+        .centerquote h1 {
+        
+            color: white;
+            font-size: 70px;
+            letter-spacing: 2px;
+        }
+        
+        .popularartist {
+            padding: 120px;
+            color: white;
+        }
+        
+        .popularartist .heading {
+            margin: 50px;
+        }
+        
+        .popularartist .desc {
+            opacity: .5;
+            font-size: 20px;
+            margin: 30px;
+        }
+        .popularartist .row{
+            height: 330px;
+            margin: 10px;
+        }
+        .share1{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: .3s linear;
+        }
+        .share1 .span{
+            transition: 0.6s linear;
+            width: 100%;
+            height: 100%;
+        }
+        .share1 img {
+            width: 100%;
+            height: 100%;
+            border-radius: 10px;
+        }
+
+        .share1 .button {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            font-size: 24px;
+            text-decoration: none;
+            color: red;
+            letter-spacing: 4px;
+            line-height: 15;
+            opacity: 0;
+            transition: .7s linear;
+        }
+        .share1 .button a{
+            text-decoration: none;
+        }
+        .share1:hover .span {
+            opacity: 0.4;
+        }
+
+        .share1:hover .button {
+            opacity: 1;
+        }
+        .popularartist .photos img {
+            width: 100%;
+            height: 100%;
+        }
+        
+        .featured {
+            padding: 120px;
+            color: white;
+        }
+        
+        .featured .heading {
+            margin: 50px;
+        }
+        
+        .featured .desc {
+            opacity: .5;
+            font-size: 20px;
+            margin: 30px;
+        }
+        
+        .featured .photos img {
+            width: 100%;
+            height: 100%;
+        }
+        
+        .slider {
+            padding: 150px;
+            background-color: black;
+        }
+        
+        .slider .heading {
+            color: white;
+        }
+        
+        .slider .desc {
+            color: white;
+            opacity: 0.5;
+        }
+        
+        .share {
+            padding: 140px;
+        
+            width: 100%;
+            height: 100%;
+            position: relative;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            justify-content: center;
+            transition: .3s linear;
+        }
+        
+        .share .one {
+            width: 100%;
+            height: 100%;
+        
+            position: absolute;
+            
+            text-align: center;
+            transition: 0.6s linear;
+        }
+        
+        .share .two {
+            width: 100%;
+            height: 100%;
+        
+            position: absolute;
+            text-align: center;
+            font-size: 24px;
+            text-decoration: none;
+            color: red;
+            letter-spacing: 4px;
+            line-height: 80px;
+            transition: .7s linear;
+        }
+        
+        .for1 {
+            transform: translateX(-100%);
+        }
+        
+        .for2 {
+            transform: translateX(-100%);
+        }
+        
+        .share .col-lg-4{
+            width: 100%;
+            height: 300px;
+        }
+        .share img {
+            width: 100%;
+            height: 280px;
+        }
+        
+        
+        .row1 {
+            display: flex;
+            justify-content: center;
+        }
+        
+        .carouselicon {
+            cursor: pointer;
+            margin: 10px;
+            margin-top: 40px;
+            background: white;
+            border-radius: 20%;
+            width: 30px;
+            height: 5px;
+        }
+        .colorit{
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="navandphoto">
+        <div class="navs container">
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="container">
+                        <h1>SpotifyLite</h1>
+                    </div>
+                </div>
+                <div class="col-lg-8">
+                    <ul class="row">
+                        <li class="main">
+                            <a  href="{% url 'home'%}">Home <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li>DJS</li>
+                        {% if user.is_authenticated%}
+                    <li>
+                        <a href="{% url 'playlist' album.id %}">Playlist</a>
+                    </li>
+                    <li >
+                        <a href="{% url 'account_setting'%}">Setting</a>
+                    </li>
+                    <li >
+                        <a href="{% url 'logout'%}">Logout</a>
+                    </li>
+
+                    {% else %}
+                    <li >
+                        <a href="{% url 'register'%}">Register</a>
+                    </li>
+                    <li >
+                        <a href="{% url 'login'%}">Login</a>
+                    </li>
+                    {% endif %}
+                        <li>
+                            <a  href="#">About</a>
+                        </li>
+                        <li>Contact</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="centerquote text-center">
+            <h1>TURN ON THE <br> FEELING WITH MUSIC</h1>
+        </div>
+        <!-- <div class="photo">
+        </div> -->
+    </div>
+
+    <div class="popularartist">
+        <div class="container">
+
+            <div class="heading text-center">
+                <h1>Popular Artists</h1>
+            </div>
+            <div class="desc text-center">
+                <p>They are best in their respective genre and are passionate</p>
+                <p>to deliver their best to the audience</p>
+            </div>
+            {% for artists in artist2%}
+            <div class="photos row">
+                {% for artist in artists%}
+                <div class="col-lg-4 share1">
+                    <div class="span">
+                        <img src="{{artist.image.url}}" alt="">
+                    </div>
+                    <div class="button justify-content">
+                        <button class="btn btn-danger "><a href="{% url 'artistdetail' artist.id%}">Play</a></button>
+                    </div>
+                </div>
+                {% endfor%}
+                
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="featured">
+        <div class="container">
+            <div class="heading text-center">
+                <h1>Featured Podcasts</h1>
+            </div>
+            <div class="desc text-center">
+                <p>Some of our live events where the crowd go crazy when</p>
+                <p>their favourite artists deliver thier performance</p>
+                <p>Wanna Join..??</p>
+            </div>
+            <div class="photos row">
+                <div class="col-lg-6">
+                    <img src="{% static 'images/Crowd.jpg'%}" alt="">
+                </div>
+                <div class="col-lg-6">
+
+                    <div class="col-lg-12">
+                        <img src="{% static 'images/Chainsmokers.jpg'%}" alt="">
+                    </div>
+                    <div class="col-lg-12">
+                        <img src="{% static 'images/Artist4.jpg'%}" alt="">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="featured">
+        <div class="container">
+            <div class="heading text-center">
+                <h1>Our DJs</h1>
+            </div>
+            <div class="desc text-center">
+                <p>Some of our live events where the crowd go crazy when</p>
+                <p>their favourite DJs deliver thier performance</p>
+                <p>Look of our djs..</p>
+            </div>
+            <div class="photos row">
+                <div class="col-lg-4">
+                    <img src="{% static 'images/image.jpg'%}" alt="">
+                </div>
+                <div class="col-lg-4">
+                    <img src="{% static 'images/Marshmello.jpg'%}" alt="">
+                </div>
+                <div class="col-lg-4">
+                    <img src="{% static 'images/Music1.webp'%}" alt="">
+                </div>
+            </div>
+            <div class="photos row my-4">
+                <div class="col-lg-4">
+                    <img src="{% static 'images/Artist.jpg'%}" alt="">
+                </div>
+                <div class="col-lg-4">
+                    <img src="{% static 'images/Artist2.jpg'%}" alt="">
+                </div>
+                <div class="col-lg-4">
+                    <img src="{% static 'images/Artist5.jpg'%}" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="slider">
+        <div class="container">
+            <div class="heading text-center">
+
+                <h1>Love By Our Listeners</h1>
+            </div>
+            <div class="desc text-center">
+                <p>Some of the reviews of our music lovers and their experience with us.</p>
+                <p>Do take time to give yours..</p>
+            </div>
+        </div>
+        <div class="container share">
+            <!-- <div class="share"> -->
+
+            <div class="row one" id="carouselicon1">
+                <div class="col-lg-4">
+                    <img src="{% static 'images/Artist.jpg'%}" alt="">
+                </div>
+                <div class="col-lg-4">
+                    <img src="{% static 'images/Artist2.jpg'%}" alt="">
+                </div>
+                <div class="col-lg-4">
+                    <img src="{% static 'images/Artist5.jpg'%}" alt="">
+                </div>
+            </div>
+            <div class="row two for2" id="carouselicon2">
+                <div class="col-lg-4">
+                    <img src="{% static 'images/Artist4.jpg'%}" alt="">
+                </div>
+                <div class="col-lg-4">
+                    <img src="{% static 'images/Marshmello.jpg'%}" alt="">
+                </div>
+                <div class="col-lg-4">
+                    <img src="{% static 'images/Chainsmokers.jpg'%}" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="row1">
+
+            <div class="carouselicon colorit"  id='icon1' onclick="move1()"></div>
+            <div class="carouselicon" id='icon2' onclick="move2()"></div>
+        </div>
+    </div>
+    <script>
+        /*carousels=document.getElementsByClassName('carouselicon')
+        for(let i=0;i<carousels.length;i++){
+            carousels[i].addEventListener('click',()=>{
+                window.alert('For Now You are Going Right')
+            })
+        }*/
+        function move1(){
+            let carousel1=document.getElementById('carouselicon1');
+            let carousel2=document.getElementById('carouselicon2');
+            let icon1=document.getElementById('icon1');
+            let icon2=document.getElementById('icon2');
+            icon1.classList.add('colorit');            
+            icon2.classList.remove('colorit');            
+            carousel2.classList.add('for2');
+            carousel1.classList.remove('for1');
+            
+        }
+        function move2(){
+            let carousel1=document.getElementById('carouselicon1');
+            let carousel2=document.getElementById('carouselicon2');
+            let icon1=document.getElementById('icon1');
+            let icon2=document.getElementById('icon2');
+            icon2.classList.add('colorit');            
+            icon1.classList.remove('colorit');            
+            carousel2.classList.remove('for2');
+            carousel1.classList.add('for1');
+            
+        }
+    </script>
+
+    <!-- Bootstrap script Tags -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
+</body>
+
+</html>
+
